@@ -16,11 +16,9 @@ export const Category = () => {
   return (
     <>
        <div className="bg-dark">
-      <h2 className="text-center display-5 fw-light  text-white-50 bg-dark">
+      <h2 className="text-center display-5 fw-bold fs-1 text-white bg-dark">
         Top Products
       </h2>
-
-      {/* Category Buttons */}
       <div className="container mt-4 mb-4">
         <div className="d-flex flex-wrap justify-content-center gap-3">
 
@@ -41,8 +39,6 @@ export const Category = () => {
 
         </div>
       </div>
-
-      {/* Products Grid */}
       <Cards category={activeCategory} />
        </div>
     </>

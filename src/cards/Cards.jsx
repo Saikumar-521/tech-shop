@@ -1,7 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 import productsData from "../data1/productsData";
+import { useDispatch } from "react-redux";
+import { ADDCART } from "../cart/CartSlice";
 
 export const Cards = ({ category }) => {
+
+    let dispatch=useDispatch();
 
     const filteredProducts =
         category === "All"
@@ -23,8 +27,6 @@ export const Cards = ({ category }) => {
                 {filteredProducts.map(item => (
                     <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={item.id}>
                         <div className="card bg-dark border border-secondary-subtle h-100">
-
-                            {/* Product Image */}
                             <Link
                                 to={`/product/${item.id}`}
                                 onClick={scrollToTop}
@@ -41,13 +43,10 @@ export const Cards = ({ category }) => {
 
                                 <div className="px-3">
                                     {[...Array(item.rateCount)].map((_, i) => (
-                                        <span key={i} className="text-warning small">★</span>
+                                        <span key={i} className="text-danger text-bold big">★</span>
                                     ))}
                                 </div>
                             </Link>
-
-
-                            {/* Card Body */}
                             <div className="card-body text-white">
 
                                 <h6 className="fw-semibold">{item.title}</h6>
@@ -63,7 +62,7 @@ export const Cards = ({ category }) => {
                                     </span>
                                 </div>
 
-                                <button className="btn btn-danger w-100 mt-3">
+                                <button className="btn btn-danger w-100 mt-3" onClick={() => dispatch(ADDCART({ ...item, quantity: 1 }))}>
                                     Add to Cart
                                 </button>
 
@@ -71,8 +70,6 @@ export const Cards = ({ category }) => {
                         </div>
                     </div>
                 ))}
-
-                {/* Browse All Button */}
                 <div className="col-12 col-sm-6 col-md-4 col-lg-3">
                     <button
                         onClick={goToProducts}

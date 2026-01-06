@@ -1,0 +1,75 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+}
+.bg-dark {
+  background-color: #040404 !important;
+  /* background-color: #d50909 !important; */
+}
+.text-secondary {
+  color: #bbbbbb !important;
+}
+.text-muted {
+  color: #777777 !important;
+}
+
+.hover-opacity {
+  transition: opacity .2s ease;
+}
+
+.cart-scroll{
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.position-relative:hover .hover-opacity {
+  opacity: 1 !important;
+}
+.hover-link:hover {
+  color: #f1eded !important;
+}
+.col-lg-3:hover {
+  transform: translateY(-3px);
+  transition: .2s ease;
+}
+.hover-text:hover {
+  color: red;
+}
+/* card container */
+.product-card {
+  background: #040404;
+  border-radius: 14px;
+  padding: 14px;
+  text-align: center;
+  transition: .3s ease;
+  min-height: 180px;
+}
+
+/* image stays clean & centered */
+.product-image {
+  max-width: 120px;
+  height: 110px;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+}
+.slick-slide {
+  transform: scale(.85);
+  opacity: 0.9;
+}
+.slick-center .product-card {
+  transform: scale(1.18);
+  opacity: 1;
+  position: relative;
+}
+.slick-center .product-card::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 14px solid #040404;
+}

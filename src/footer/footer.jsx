@@ -5,12 +5,8 @@ import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <footer className="bg-dark text-secondary">
-      
-      {/* Top Section */}
       <div className="container py-5">
         <div className="row g-4">
-
-          {/* Subscribe Section */}
           <div className="col-12 col-md-4">
             <h2 className="text-white mb-3">Tech-Shop</h2>
 
@@ -29,8 +25,6 @@ export const Footer = () => {
               Subscribe
             </button>
           </div>
-
-          {/* Footer Menu Sections */}
           {footerData.map(section => (
             <div key={section.id} className="col-6 col-md-2">
               <h6 className="text-white mb-3 fw-semibold">{section.title}</h6>

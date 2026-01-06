@@ -1,8 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import productsData from "../data1/productsData";
+import { useDispatch } from "react-redux";
+import { ADDCART } from "../cart/CartSlice";
 
 export const RelatedProducts = () => {
 
+  let dispatch=useDispatch();
   const { id } = useParams();
   const currentProduct = productsData.find(item => item.id === Number(id));
 
@@ -30,8 +33,6 @@ export const RelatedProducts = () => {
             <div className="card bg-dark border border-secondary-subtle h-100">
 
               <Link to={`/product/${item.id}`} onClick={scrollToTop} className="text-decoration-none">
-
-                {/* Image */}
                 <div className="d-flex justify-content-center p-3">
                   <img
                     src={item.heroImage}
@@ -67,7 +68,7 @@ export const RelatedProducts = () => {
 
               {/* Add to Cart */}
               <div className="card-footer bg-transparent border-0 px-3 pb-3">
-                <button className="btn btn-danger w-100">
+                <button className="btn btn-danger w-100" onClick={()=>dispatch(ADDCART({...item, quantity: 1}))}>
                   Add to Cart
                 </button>
               </div>
