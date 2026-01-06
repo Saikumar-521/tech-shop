@@ -42,10 +42,11 @@ export const Header = () => {
           <IoIosSearch
             className="fs-4 cursor-pointer text-white"
             onClick={() => setShowSearch(true)}
+            title="search"
             aria-label="search"
           />
           <div className="position-relative cursor-pointer" onClick={() => window.location.href = "/cart"}>
-            <LuShoppingCart className="fs-4 text-white" />
+            <LuShoppingCart className="fs-4 text-white"  title="cart"/>
             {cartlength > 0 && (
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style={{ fontSize: "10px" }}>
                 {cartlength}
@@ -55,6 +56,7 @@ export const Header = () => {
           <FaRegUserCircle
             className="fs-4 cursor-pointer text-white"
             onClick={() => setShowModal(true)}
+            title="user/login"
           />
         </div>
       </header>
